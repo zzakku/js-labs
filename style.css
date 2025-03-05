@@ -9,7 +9,7 @@
   color: white;                /* задаем белый цвет текста внутри кнопки */
   font-size: 1.5rem;           /* увеличим размер шрифта */
   font-family: Courier, Helvetica, sans-serif; /* сменим шрифт */
-/*  font-weight: 700; */
+  font-weight: 700; 
   cursor: pointer;             /* при наведении на кнопку курсор будет изменен
                                   со стрелки на 'указательный палец' */
   user-select: none;           /* отключаем возможность выделить текст внутри кнопки */
@@ -51,6 +51,6 @@
   text-align: right;           /* примагнитим текст к правой стороне */
   color: #ffffff;              /* цвет текста белый */
   font-size: 1.5rem;
-/*  font-weight: 700; */
+  font-weight: 700; 
   font-family: Courier, Helvetica, sans-serif;
 }
