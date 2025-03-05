@@ -13,7 +13,7 @@ body {
     height: 75px;                /* задаем высоту кнопки */
     border: none;                /* отключаем обводку */
     background: #515151;         /* задаем серый цвет кнопки */
-    color: white;                /* задаем белый цвет текста внутри кнопки */
+    color: yellow;                /* задаем белый цвет текста внутри кнопки */
     font-size: 2rem;           /* увеличим размер шрифта */
     font-family: Courier, Helvetica, sans-serif; /* сменим шрифт */
     font-weight: 500; 
