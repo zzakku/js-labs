@@ -43,7 +43,7 @@
 .result { 
   width: 220px;
   height: 50px;
-/*  border-radius: 10%; */
+  border-radius: 15%;
   margin-bottom: 15px;         /* отступ снизу */
   padding-right: 10px;         /* выступ справа */
   background: rgb(10, 35, 35); /* цвет можно задавать и таким образом */
