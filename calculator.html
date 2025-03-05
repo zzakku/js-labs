@@ -53,7 +53,24 @@
       </div>
     </div>
 
-    <p style="color: royalblue;">ЛР выполнена Кузнецовым Степаном</p>
+      <div>
+        <p style="color: royalblue;">ЛР выполнена Кузнецовым Степаном</p>
+        <button id="btn_theme_swap" class="changetheme" onclick="SwapTheme()">Сменить тему</button>
+
+        <script>
+          function SwapTheme()
+          {
+            if (document.body.style.backgroundColor == "black")
+            {
+              document.body.style.backgroundColor = "white"
+            }
+            else
+            {
+              document.body.style.backgroundColor = "black"
+            }
+          }
+        </script>
+      </div>
   </div>
 </body>
 </html>
