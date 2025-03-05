@@ -9,12 +9,12 @@ body {
   .my-btn { 
     margin-right: 5px;           /* задаем отступ от кнопки справа */
     margin-top: 5px;             /* задаем отступ от кнопки сверху*/
-    width: 50px;                 /* задаем ширину кнопки */
-    height: 50px;                /* задаем высоту кнопки */
+    width: 75px;                 /* задаем ширину кнопки */
+    height: 75px;                /* задаем высоту кнопки */
     border: none;                /* отключаем обводку */
     background: #515151;         /* задаем серый цвет кнопки */
     color: white;                /* задаем белый цвет текста внутри кнопки */
-    font-size: 1.5rem;           /* увеличим размер шрифта */
+    font-size: 2rem;           /* увеличим размер шрифта */
     font-family: Courier, Helvetica, sans-serif; /* сменим шрифт */
     font-weight: 700; 
     cursor: pointer;             /* при наведении на кнопку курсор будет изменен
@@ -44,20 +44,20 @@ body {
 
   /* селектор для кнопки расчета выражения (=) */
   .my-btn.execute { 
-    width: 110px;          /* сделаем кнопку шире других */
+    width: 159px;          /* сделаем кнопку шире других */
   }
 
   /* селектор для поля вывода результата */
   .result { 
-    width: 220px;
-    height: 50px;
+    width: 317px;
+    height: 75px;
     border-radius: 15%;
     margin-bottom: 15px;         /* отступ снизу */
     padding-right: 10px;         /* выступ справа */
     background: rgb(10, 35, 35); /* цвет можно задавать и таким образом */
     text-align: right;           /* примагнитим текст к правой стороне */
     color: #ffffff;              /* цвет текста белый */
-    font-size: 1.5rem;
+    font-size: 3rem;
     font-weight: 700; 
     font-family: Courier, Helvetica, sans-serif;
   }
