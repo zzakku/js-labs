@@ -77,6 +77,15 @@ body {
   .about {
     margin-top: 8px;
     margin-bottom: 60px;
+    height: 30px;
+  }
+
+  .textbox {
+    background: #08519C;
+    width: 327px;
+    border: none;
+    font-family: Courier, Helvetica, sans-serif;
+    color: white;
   }
 
 }
