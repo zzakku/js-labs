@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body style="background-color:black;">
+<body>
   <div> <!-- div - это базовый html-контейнер, который может содержать в себе другие html-элементы. -->
     
     <!-- блок с экраном калькулятора, где будет выводиться результат вычислений. -->
@@ -53,26 +53,30 @@
       </div>
     </div>
 
-      <div>
+
         <details class="textbox about" style="width: 327px;">
           <summary>Автор</summary>
-          <p style="text-align: left; background-color: #08519C;">ЛР выполнена Кузнецовым Степаном, группа РТ5-41Б.</p>
+          <p style="text-align: left; background-color: #FAFAFA; border: solid 1px;">ЛР выполнена Кузнецовым Степаном, группа РТ5-41Б.</p>
         </details>
         <p class = "textbox">Цель данной лабораторной работы - <u>знакомство</u> с инструментами построения пользовательских интерфейсов web-сайтов: <u>HTML</u>, <u>CSS</u>. </p>
+      <div style = "display: flex; justify-content: center; width: 327px; gap: 10px;">
 
         <button id="btn_theme_swap" class="changetheme" onclick="SwapTheme()">Сменить тему</button>
-        <a id="btn_github" href="https://github.com" class="button changetheme">GitHub</a>
-        <select class = "changetheme">
-          <option>Числа</option>
-          <option>Цифры</option> 
-        </select>
+
+        <button id="btn_github" onclick="location.href='https://google.com';" class="changetheme">GitHub</a>
+        <form>
+          <select class = "changetheme">
+            <option>Числа</option>
+            <option>Цифры</option> 
+          </select>
+        </form>
 
         <script>
           function SwapTheme()
           {
             if (document.body.style.backgroundColor == "black")
             {
-              document.body.style.backgroundColor = "white"
+              document.body.style.backgroundColor = "#E1E1DB"
             }
             else
             {
