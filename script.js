@@ -142,4 +142,26 @@ window.onload = function(){
         
     }
 
+    // С: Факториал
+    
+    function factorial(n) {
+        if (n === 0) return 1
+        else return factorial(n - 1) * n
+    }
+
+    document.getElementById("btn_op_factorial").onclick = function() {
+        if (!selectedOperation) {
+
+            expressionResult = factorial(+a)
+            a = expressionResult.toString()
+            outputElement.innerHTML = a
+        }
+        else {
+            expressionResult = factorial(+a)
+            b = expressionResult.toString()
+            outputElement.innerHTML = b
+        }
+        
+    }
+
     };
