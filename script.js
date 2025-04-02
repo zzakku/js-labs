@@ -125,7 +125,21 @@ window.onload = function(){
         
     }
 
-    // С: 
+    // С: Квадрат
 
+    document.getElementById("btn_op_sqr").onclick = function() {
+        if (!selectedOperation) {
+
+            expressionResult = (+a)*(+a)
+            a = expressionResult.toString()
+            outputElement.innerHTML = a
+        }
+        else {
+            expressionResult = (+b)*(+b)
+            b = expressionResult.toString()
+            outputElement.innerHTML = b
+        }
+        
+    }
 
     };
