@@ -111,17 +111,21 @@ window.onload = function(){
         if (!selectedOperation) {
             if (+a < 0) return
 
-            a = (Math.sqrt(+a)).toString()
+            expressionResult = (Math.sqrt(+a))
+            a = expressionResult.toString()
             outputElement.innerHTML = a
         }
         else {
             if (+b < 0) return
 
-            b = (Math.sqrt(+b)).toString()
+            expressionResult = (Math.sqrt(+b))
+            b = expressionResult.toString()
             outputElement.innerHTML = b
         }
         
     }
+
+    // С: 
 
 
     };
