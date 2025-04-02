@@ -143,7 +143,7 @@ window.onload = function(){
     }
 
     // С: Факториал
-    
+
     function factorial(n) {
         if (n === 0) return 1
         else return factorial(n - 1) * n
@@ -162,6 +162,18 @@ window.onload = function(){
             outputElement.innerHTML = b
         }
         
+    }
+
+    document.getElementById("btn_op_trizero").onclick = function() {
+        if (!selectedOperation) {
+
+            a += '000'
+            outputElement.innerHTML = a
+        }
+        else {
+            b += '000'
+            outputElement.innerHTML = b
+        }        
     }
 
     };
