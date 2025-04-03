@@ -91,7 +91,7 @@ window.onload = function(){
         outputElement.innerHTML = a
     }
 
-        // С: кнопка смены знака
+    // С: кнопка смены знака
 
     document.getElementById("btn_op_sign").onclick = function() {
         if (a !== '') {
@@ -104,7 +104,7 @@ window.onload = function(){
         }
     }
 
-    // С: Процент :)
+    // С: Процент
 
     document.getElementById("btn_op_percent").onclick = function() {
         if (a === '') return
@@ -202,5 +202,16 @@ window.onload = function(){
             asciiElement.innerHTML = expressionResult
         }        
     }
+
+//    document.getElementById("btn_op_percent").onclick = function() {
+//        if (!selectedOperation) {
+//           a = a.slice(0, -1);
+//            outputElement.innerHTML = a;
+//        }
+//        else {
+//            b = b.slice(0, -1);
+//            outputElement.innerHTML = b;
+//        }
+//    }
 
     };
