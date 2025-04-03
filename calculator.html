@@ -12,9 +12,13 @@
   <div> <!-- div - это базовый html-контейнер, который может содержать в себе другие html-элементы. -->
     
     <!-- блок с экраном калькулятора, где будет выводиться результат вычислений. -->
-    <div id="result" class="result">
-      0
+    <div style = "display: flex">
+      <div id="result" class="result">
+        0
+      </div>
+      <div id="result_ascii" class="result_ascii"></div>
     </div>
+
 
     <!-- блок с кнопками калькулятора. -->
     <div>
@@ -54,14 +58,14 @@
       <div>
         <button id="btn_digit_0" class = "my-btn">0</button>
         <button id="btn_digit_dot" class = "my-btn">.</button>
-        <button id="btn_digit_ascii" class = "my-btn">eh</button>        
+        <button id="btn_op_ascii" class = "my-btn primary">UTF</button>        
         <button id="btn_op_equal" class="my-btn primary execute">=</button>
       </div>
 
     </div>
 
 
-        <details class="textbox about" style="width: 327px;">
+        <details class="textbox about" style="width: 410px;">
           <summary>Автор</summary>
           <p style="text-align: left; background-color: #FAFAFA; border: solid 1px; border-color: #bbb; text-indent: 2px;">ЛР выполнена Кузнецовым Степаном, группа РТ5-41Б.</p>
         </details>

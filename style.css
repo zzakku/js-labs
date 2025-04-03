@@ -5,7 +5,7 @@
 
 body {
   display: flex;
-  height: 80vh;
+  height: 90vh;
   align-items: center;
   justify-content: center;
   background-color: #E1E1DB;
@@ -74,16 +74,41 @@ body {
     height: 75px;
     border: solid;
     border-radius: 4px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
     border-color: #BBBBBB;
     border-width: 4px;
     margin-bottom: 15px;         /* отступ снизу */
     padding-right: 10px;         /* выступ справа */
     background: rgb(255, 255, 255); /* цвет можно задавать и таким образом */
     text-align: right;           /* примагнитим текст к правой стороне */
-    color: #000;              /* цвет текста белый */
+    color: #000;              /* цвет текста черный */
     font-size: 3rem;
     font-weight: 500; 
     font-family: 'Fira Sans', Helvetica, sans-serif;
+
+    flex: 4;
+  }
+
+  .result_ascii { 
+    width: 75px;
+    height: 75px;
+    border: solid;
+    border-radius: 4px;
+    border-left: 0px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-color: #BBBBBB;
+    border-width: 4px;
+    margin-bottom: 15px;         /* отступ снизу */
+    background: rgb(255, 255, 255); /* цвет можно задавать и таким образом */
+    text-align: center;           /* примагнитим текст к правой стороне */
+    color: #000;              
+    font-size: 3rem;
+    font-weight: 500; 
+    font-family: 'Fira Sans', Helvetica, sans-serif;
+
+    flex: 1;
   }
 
   .changetheme {
@@ -118,7 +143,7 @@ body {
 
   .textbox {
     background: #FAFAFA;
-    width: 327px;
+    width: 410px;
     border: 1px solid;
     border-color: #bbb;
     font-family: 'Fira Sans', Helvetica, sans-serif;

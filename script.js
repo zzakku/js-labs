@@ -8,6 +8,9 @@ window.onload = function(){
     
     // окно вывода результата
     outputElement = document.getElementById("result")
+
+    // С: окно вывода ASCII-символов
+    asciiElement = document.getElementById("result_ascii")    
     
     // список объектов кнопок циферблата (id которых начинается с btn_digit_)
     digitButtons = document.querySelectorAll('[id ^= "btn_digit_"]')
@@ -173,6 +176,18 @@ window.onload = function(){
         else {
             b += '000'
             outputElement.innerHTML = b
+        }        
+    }
+
+    document.getElementById("btn_op_ascii").onclick = function() {
+        if (!selectedOperation) {
+
+            expressionResult = String.fromCharCode(+a)
+            asciiElement.innerHTML = expressionResult
+        }
+        else {
+            expressionResult = String.fromCharCode(+b)
+            asciiElement.innerHTML = expressionResult
         }        
     }
 
