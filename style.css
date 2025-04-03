@@ -11,26 +11,23 @@ body {
   background-color: #E1E1DB;
 
 
-  /* опишем базовый стиль кнопки калькулятора */
   .my-btn { 
-    margin-right: 5px;           /* задаем отступ от кнопки справа */
-    margin-top: 5px;             /* задаем отступ от кнопки сверху*/
-    width: 75px;                 /* задаем ширину кнопки */
-    height: 75px;                /* задаем высоту кнопки */
+    margin-right: 5px;          
+    margin-top: 5px;            
+    width: 75px;               
+    height: 75px;              
     border: 1px solid;
     border-color: #bbb;
     border-radius: 4px;
-    background: #FAFAFA;         /* задаем серый цвет кнопки */
-    color: #2A3439;                /* задаем белый цвет текста внутри кнопки */
-    font-size: 2rem;           /* увеличим размер шрифта */
-    font-family: 'Fira Sans', Helvetica, sans-serif; /* сменим шрифт */
+    background: #FAFAFA;        
+    color: #2A3439;               
+    font-size: 2rem;          
+    font-family: 'Fira Sans', Helvetica, sans-serif; 
     font-weight: 500; 
-    cursor: pointer;             /* при наведении на кнопку курсор будет изменен
-                                    со стрелки на 'указательный палец' */
-    user-select: none;           /* отключаем возможность выделить текст внутри кнопки */
+    cursor: pointer;             
+    user-select: none;           
   } 
 
-  /* hover - это состояние элемента, когда на него наведен курсор */
   .my-btn:hover {
     background: #bbb;
   }
@@ -111,29 +108,6 @@ body {
     flex: 1;
   }
 
-  .changetheme {
-    background: #FAFAFA;
-    font-family: 'Fira Sans', Helvetica, sans-serif;
-    color: #2A3439;
-    font-weight: 400;
-    font-size: 1.1rem;
-    border: none;
-    height: 30px;
-    cursor: pointer;
-  }
-
-  .linkbtn {
-    background: #FAFAFA;
-    font-family: 'Fira Sans', Helvetica, sans-serif;
-    color: #2A3439;
-    font-weight: 400;
-    font-size: 1.1rem;
-    border: none;
-    height: 30px;
-    cursor: pointer;
-    width: 100px;
-  }
-
   .about {
     margin-top: 8px;
     margin-bottom: 60px;
@@ -149,12 +123,6 @@ body {
     font-family: 'Fira Sans', Helvetica, sans-serif;
     color: #444;
     text-align: center;
-  }
-
-  a {
-    height: 75px;
-    display: inline-block;
-    
   }
 
 }
