@@ -104,9 +104,21 @@ window.onload = function(){
         }
     }
 
+    // С: Процент :)
+
     document.getElementById("btn_op_percent").onclick = function() {
         if (a === '') return
 
+        if (selectedOperation === 'x') {
+            expressionResult = (+a)/100 * (+b)
+            a = expressionResult.toString()
+        }
+        if (selectedOperation === '+') {
+            expressionResult = ( (+a) / 100 * (+b) ) + (+a)
+            a = expressionResult.toString()            
+        }
+
+        outputElement.innerHTML = a
     }
 
     // С: Квадратный корень
