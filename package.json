@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/zzakku/js-labs/issues"
   },
-  "homepage": "https://github.com/zzakku/js-labs#readme"
+  "homepage": "https://github.com/zzakku/js-labs#readme",
+  "dependencies": {
+    "bootstrap": "^5.3.5"
+  }
 }
