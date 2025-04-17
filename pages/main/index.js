@@ -1,9 +1,13 @@
 import {ProductCardComponent} from "../../components/product-card/index.js";
 import {ProductPage} from "../product/index.js";
+import {AddButtonComponent} from "../../components/add-button/index.js";
+import {DeleteButtonComponent} from "../../components/delete-button/index.js";
+import {BackButtonComponent} from "../../components/back-button/index.js";
 
 export class MainPage {
     constructor(parent) {
         this.parent = parent;
+        this.currentData = this.getData();
     }
 
     clickCard(e) {
@@ -12,6 +16,30 @@ export class MainPage {
         const productPage = new ProductPage(this.parent, cardId)
         productPage.render()
     }
+
+    // Кнопка "Добавить запись"
+    clickAdd() {
+        const firstItem = this.getData()[0]
+
+        this.currentData.push(firstItem)
+
+        this.render()
+    }
+
+    // Кнопка "Удалить запись"
+    clickDelete() {
+
+        this.currentData.pop() // проверка на пустоту массива не нужна, pop() же
+
+        this.render()
+    }
+
+    //Кнопка "Домой"
+    clickBack() {
+        const mainPage = new MainPage(this.parent)
+        mainPage.render()
+    }
+
 
     get pageRoot() {
         return document.getElementById('main-page')
@@ -55,8 +83,14 @@ export class MainPage {
         const html = this.getHTML()
         this.parent.insertAdjacentHTML('beforeend', html)
         
-        const data = this.getData()
-        data.forEach((item) => {
+        const addButton = new AddButtonComponent(this.pageRoot)
+        addButton.render(this.clickAdd.bind(this))
+        const deleteButton = new DeleteButtonComponent(this.pageRoot)
+        deleteButton.render(this.clickDelete.bind(this))
+        const backButton = new BackButtonComponent(this.pageRoot)
+        backButton.render(this.clickBack.bind(this))
+
+        this.currentData.forEach((item) => {
             const productCard = new ProductCardComponent(this.pageRoot)
             productCard.render(item, this.clickCard.bind(this))
         })
