@@ -1,18 +1,18 @@
-export class DeleteButtonComponent {
+export class SearchBarComponent {
     constructor(parent) {
         this.parent = parent;
     }
 
     addListeners(listener) {
         document
-            .getElementById("delete-button")
+            .getElementById("search-bar")
             .addEventListener("click", listener)
     }
 
     getHTML() {
         return (
             `
-                <button id="delete-button" class="btn btn-primary" type="button">Удалить запись</button>
+                <input id="search-bar" class="" type="text">Поиск</input>
             `
         )
     }

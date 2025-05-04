@@ -19,7 +19,7 @@ export class BackButtonComponent {
 
     render(listener) {
         const html = this.getHTML()
-        this.parent.insertAdjacentHTML('beforeend', html)
+        this.parent.insertAdjacentHTML('beforebegin', html)
         this.addListeners(listener)
     }
 }

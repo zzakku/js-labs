@@ -3,6 +3,7 @@ import {ProductPage} from "../product/index.js";
 import {AddButtonComponent} from "../../components/add-button/index.js";
 import {DeleteButtonComponent} from "../../components/delete-button/index.js";
 import {BackButtonComponent} from "../../components/back-button/index.js";
+import { SearchBarComponent } from "../../components/search-bar/index.js";
 
 export class MainPage {
     constructor(parent) {
@@ -20,6 +21,16 @@ export class MainPage {
     // Кнопка "Добавить запись"
     clickAdd() {
         const firstItem = this.getData()[0]
+        let maxId = 0
+
+        this.currentData.forEach((item) => {
+            if (maxId < item.id)
+            {
+                maxId = item.id
+            }
+        })
+
+        firstItem.id = maxId + 1
 
         this.currentData.push(firstItem)
 
@@ -76,7 +87,12 @@ export class MainPage {
         ]
     }
         
-
+    renderCards(data) {
+        data.forEach((item) => {
+            const productCard = new ProductCardComponent(this.pageRoot)
+            productCard.render(item, this.clickCard.bind(this))
+        })
+    }
     
     render() {
         this.parent.innerHTML = ''
@@ -87,12 +103,11 @@ export class MainPage {
         addButton.render(this.clickAdd.bind(this))
         const deleteButton = new DeleteButtonComponent(this.pageRoot)
         deleteButton.render(this.clickDelete.bind(this))
+        const searchBar = new SearchBarComponent(this.pageRoot)
+        searchBar.render(this.clickBack.bind(this))
         const backButton = new BackButtonComponent(this.pageRoot)
         backButton.render(this.clickBack.bind(this))
 
-        this.currentData.forEach((item) => {
-            const productCard = new ProductCardComponent(this.pageRoot)
-            productCard.render(item, this.clickCard.bind(this))
-        })
+        this.renderCards(this.currentData)
     }
 }
