@@ -18,6 +18,18 @@ export class MainPage {
         productPage.render()
     }
 
+    // Поле поиска
+    handleSearch(e) {
+         const searchBar = document.getElementById("search-bar")
+//        searchBar.addEventListener('input', (e) => {
+            const searchQuery = e.target.value.toLowerCase()
+            document.querySelectorAll('.card-container').forEach(card => {
+                const title = card.dataset.title;
+                card.style.display = title.includes(searchQuery) ? 'block' : 'none';
+            });
+//        }); */
+    }
+
     // Кнопка "Добавить запись"
     clickAdd() {
         const firstItem = this.getData()[0]
@@ -59,7 +71,9 @@ export class MainPage {
     getHTML() {
         return (
             `
-                <div id="main-page" class="d-flex flex-wrap"><div/>
+                <div id="main-page" class="d-flex flex-wrap">
+                    <div id="card-container" class="d-flex flex-column gap-3"></div>
+                <div/>
             `
         )
     }
@@ -104,9 +118,12 @@ export class MainPage {
         const deleteButton = new DeleteButtonComponent(this.pageRoot)
         deleteButton.render(this.clickDelete.bind(this))
         const searchBar = new SearchBarComponent(this.pageRoot)
-        searchBar.render(this.clickBack.bind(this))
+        searchBar.render(this.handleSearch.bind(this))
+
         const backButton = new BackButtonComponent(this.pageRoot)
         backButton.render(this.clickBack.bind(this))
+
+//        this.handleSearch()
 
         this.renderCards(this.currentData)
     }
