@@ -6,7 +6,7 @@ export class SearchBarComponent {
     addListeners(listener) {
         document
             .getElementById("search-bar")
-            .addEventListener("click", listener)
+            .addEventListener("input", listener)
     }
 
     getHTML() {

@@ -5,6 +5,8 @@ import {DeleteButtonComponent} from "../../components/delete-button/index.js";
 import {BackButtonComponent} from "../../components/back-button/index.js";
 import { SearchBarComponent } from "../../components/search-bar/index.js";
 
+
+
 export class MainPage {
     constructor(parent) {
         this.parent = parent;
@@ -21,10 +23,12 @@ export class MainPage {
     // Поле поиска
     handleSearch(e) {
          const searchBar = document.getElementById("search-bar")
+         const cardContainer = document.getElementById("card-container")
 //        searchBar.addEventListener('input', (e) => {
             const searchQuery = e.target.value.toLowerCase()
-            document.querySelectorAll('.card-container').forEach(card => {
-                const title = card.dataset.title;
+            document.querySelectorAll('.card').forEach(card => {
+                const title = card.children[1].children[0].innerHTML.toLowerCase();
+                console.log(title)
                 card.style.display = title.includes(searchQuery) ? 'block' : 'none';
             });
 //        }); */
