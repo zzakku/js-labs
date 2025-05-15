@@ -139,8 +139,8 @@ export class MainPage {
 
 
         data.forEach((item) => {
-            const productCard = new PostCardComponent(cardContainer)
-            productCard.render(item, this.clickCard.bind(this))
+            const postCard = new PostCardComponent(cardContainer)
+            postCard.render(item, this.clickCard.bind(this))
         })
     }
     
