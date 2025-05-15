@@ -12,14 +12,14 @@ export class DeleteButtonComponent {
     getHTML() {
         return (
             `
-                <button id="delete-button" class="btn btn-primary" type="button">Удалить запись</button>
+                <button id="delete-button" class="my-btn btn-primary align-middle" type="button">Delete a post</button>
             `
         )
     }
 
     render(listener) {
         const html = this.getHTML()
-        this.parent.insertAdjacentHTML('beforebegin', html)
+        this.parent.insertAdjacentHTML('beforeend', html)
         this.addListeners(listener)
     }
 }

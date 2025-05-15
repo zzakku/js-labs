@@ -1,4 +1,4 @@
-export class ProductComponent {
+export class PostComponent {
     constructor(parent) {
         this.parent = parent
     }
@@ -12,7 +12,7 @@ export class ProductComponent {
                             <img src="${data.src}" class="img-fluid" alt="картинка">
                         </div>
                         <div class="col-md-8">
-                            <div class="card-body">
+                            <div class="my-card card-body">
                                 <h5 class="card-title">${data.title}</h5>
                                 <p class="card-text">${data.text}</p>
                             </div>

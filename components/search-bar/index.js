@@ -12,14 +12,14 @@ export class SearchBarComponent {
     getHTML() {
         return (
             `
-                <input id="search-bar" class="" type="text" placeholder="эгегей">Поиск</input>
+                <input id="search-bar" class="align-middle search-bar" type="text" placeholder="Search..."></input>
             `
         )
     }
 
     render(listener) {
         const html = this.getHTML()
-        this.parent.insertAdjacentHTML('beforebegin', html)
+        this.parent.insertAdjacentHTML('beforeend', html)
         this.addListeners(listener)
     }
 }
