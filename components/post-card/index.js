@@ -7,7 +7,6 @@ export class PostCardComponent {
         return (
             `
                 <div class="card" style="width: 300px;">
-                    <img class="card-img-top" src="${data.src}" alt="картинка">
                     <div class="my-card card-body">
                         <h5 class="card-title">${data.title}</h5>
                         <p class="card-text">${data.text}</p>
@@ -15,6 +14,8 @@ export class PostCardComponent {
                     </div>
                 </div>
             `
+
+//                    <img class="card-img-top" src="${data.src}" alt="картинка">
         )
     }
 
