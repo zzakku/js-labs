@@ -18,6 +18,7 @@ export function isEqualObj(x, y) {
 
     for (let p in x ) {
         if ( x[ p ] === y[ p ] ) continue;
+        if ( typeof( x[ p ] ) !== "object" ) return false;
         if ( ! isEqualObj( x[ p ],  y[ p ] ) ) return false;
     }
 
