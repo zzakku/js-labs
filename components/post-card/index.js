@@ -3,6 +3,11 @@ export class PostCardComponent {
         this.parent = parent;
     }
 
+
+    //TO-DO: дата на карточке
+    //TO-DO: связать с датой функцию fill
+    //TO-DO: добавить удаление карточки прямо на карточку
+    
     getHTML(data) {
         return (
             `

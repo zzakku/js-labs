@@ -10,6 +10,8 @@ import { isEqualObj, maxKDiff, fill, isPalindrome } from "../../misc/functions.j
 
 // 1.7, 1.9, 2.6, 3.8
 
+// TO-DO: убрать кнопки из хедера
+
 export class MainPage {
     constructor(parent) {
         this.parent = parent;
