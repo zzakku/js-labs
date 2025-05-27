@@ -1,7 +1,7 @@
 import {PostCardComponent} from "../../components/post-card/index.js";
 import {PostPage} from "../post/index.js";
 import {AddButtonComponent} from "../../components/add-button/index.js";
-import {DeleteButtonComponent} from "../../components/delete-button/index.js";
+import {SortButtonComponent} from "../../components/sort-button/index.js";
 import {BackButtonComponent} from "../../components/back-button/index.js";
 import { SearchBarComponent } from "../../components/search-bar/index.js";
 import { PalindromeButtonComponent } from "../../components/palindrome-button/index.js";
@@ -179,7 +179,7 @@ export class MainPage {
         const addButton = new AddButtonComponent(buttons)
         addButton.render(this.clickAdd.bind(this))
 
-        const sortButton = new DeleteButtonComponent(buttons)
+        const sortButton = new SortButtonComponent(buttons)
         sortButton.render(this.clickSort.bind(this))
 
         const searchBar = new SearchBarComponent(buttons)

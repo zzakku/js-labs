@@ -1,18 +1,18 @@
-export class DeleteButtonComponent {
+export class SortButtonComponent {
     constructor(parent) {
         this.parent = parent;
     }
 
     addListeners(listener) {
         document
-            .getElementById("delete-button")
+            .getElementById("sort-button")
             .addEventListener("click", listener)
     }
 
     getHTML() {
         return (
             `
-                <button id="delete-button" class="my-btn btn-primary align-middle" type="button">Отфильтровать по дате</button>
+                <button id="sort-button" class="my-btn btn-primary align-middle" type="button">Отфильтровать по дате</button>
             `
         )
     }
