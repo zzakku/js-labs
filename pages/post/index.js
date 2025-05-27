@@ -3,8 +3,6 @@ import {MainPage} from "../main/index.js";
 
 import {PostComponent} from "../../components/post/index.js";
 
-import { isEqualObj, maxKDiff, fill, isPalindrome } from "../../misc/functions.js";
-
 export class PostPage {
     constructor(parent, id) {
         this.parent = parent
@@ -53,12 +51,7 @@ export class PostPage {
     
         const data = this.getData()
         const stock = new PostComponent(this.pageRoot)
-
-
-        let a_html = "<p>Специальный массив букв 'а' этой статьи: "
-        a_html = a_html.concat(fill(this.id, 'a'),'</p>')
         
-
         this.parent.insertAdjacentHTML('beforeend', a_html)
 
 

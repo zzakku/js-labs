@@ -1,14 +1,11 @@
 import {PostCardComponent} from "../../components/post-card/index.js";
 import {PostPage} from "../post/index.js";
 import {AddButtonComponent} from "../../components/add-button/index.js";
-import {DeleteButtonComponent} from "../../components/delete-button/index.js";
+import {SortButtonComponent} from "../../components/sort-button/index.js";
 import {BackButtonComponent} from "../../components/back-button/index.js";
 import { SearchBarComponent } from "../../components/search-bar/index.js";
-import { PalindromeButtonComponent } from "../../components/palindrome-button/index.js";
 
-import { isEqualObj, maxKDiff, fill, isPalindrome, encDate, decDate } from "../../misc/functions.js";
-
-// 1.7, 1.9, 2.6, 3.8
+import { encDate, decDate } from "../../misc/functions.js";
 
 export class MainPage {
     constructor(parent) {
@@ -87,20 +84,6 @@ export class MainPage {
         mainPage.render()
     }
 
-    //Кнопка "Найти палиндромы"
-    clickPalindromes() {
-        let pals = new Set()
-
-        this.currentData.forEach(element => {
-            if (isPalindrome(element.title)) {
-                pals.add(element.title)
-            }
-        })
-
-        alert(`Найдены палиндромы:\n${Array.from(pals).join('\n')}`)
-    }
-
-
     get pageRoot() {
         return document.getElementById('main-page')
     }
@@ -174,20 +157,14 @@ export class MainPage {
         const backButton = new BackButtonComponent(home)
         backButton.render(this.clickBack.bind(this))
 
-        const palindromeButton = new PalindromeButtonComponent(buttons)
-        palindromeButton.render(this.clickPalindromes.bind(this))
         const addButton = new AddButtonComponent(buttons)
         addButton.render(this.clickAdd.bind(this))
 
-        const sortButton = new DeleteButtonComponent(buttons)
+        const sortButton = new SortButtonComponent(buttons)
         sortButton.render(this.clickSort.bind(this))
 
         const searchBar = new SearchBarComponent(buttons)
         searchBar.render(this.handleSearch.bind(this))
-
-
-
-//        this.handleSearch()
 
         this.renderCards(this.currentData)
     }
