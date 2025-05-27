@@ -4,9 +4,7 @@ export class PostCardComponent {
     }
 
 
-    //TO-DO: дата на карточке
     //TO-DO: связать с датой функцию fill
-    //TO-DO: добавить удаление карточки прямо на карточку
     
     getHTML(data) {
         return (
@@ -14,8 +12,10 @@ export class PostCardComponent {
                 <div class="card" style="width: 300px;">
                     <div class="my-card card-body">
                         <h5 class="card-title">${data.title}</h5>
+                        <h5 class="card-text" style="color: rgb(170,174,165);">${data.date}</h3>
                         <p class="card-text">${data.text}</p>
-                        <button class="read-btn" id="click-card-${data.id}" data-id="${data.id}">Read</button>
+                        <button class="read-btn" id="click-card-${data.id}" data-id="${data.id}">Читать</button>
+                        <button class="delete-btn" id="delete-card-${data.id}" data-id="${data.id}">Удалить</button>
                     </div>
                 </div>
             `
@@ -24,15 +24,18 @@ export class PostCardComponent {
         )
     }
 
-    addListeners(data, listener) {
+    addListeners(data, listeners) {
         document
             .getElementById(`click-card-${data.id}`)
-            .addEventListener("click", listener)
+            .addEventListener("click", listeners.add)
+        document
+            .querySelector(`[data-id="${data.id}"].delete-btn`)
+            .addEventListener("click", listeners.delete)
     }
     
-    render(data, listener) {
+    render(data, listeners) {
         const html = this.getHTML(data)
         this.parent.insertAdjacentHTML('beforeend', html)
-        this.addListeners(data, listener)
+        this.addListeners(data, listeners)
     }
 }

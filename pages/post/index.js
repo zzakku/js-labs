@@ -20,8 +20,8 @@ export class PostPage {
         return {
             id: 1,
             src: "https://i.pinimg.com/originals/c9/ea/65/c9ea654eb3a7398b1f702c758c1c4206.jpg",
-            title: `Blog post ${this.id}`,
-            text: "This task would surely greatly benefit from being rewritten in Rust!"
+            title: `Запись в блоге ${this.id}`,
+            text: "Эта задача абсолютно точно лучше решается средствами Rust!"
         }
     }
 
@@ -46,16 +46,16 @@ export class PostPage {
         const html = this.getHTML()
         this.parent.insertAdjacentHTML('beforeend', html)
 
-        const pageHeader = document.getElementById("header")
+        const home = document.getElementById("home-container")
     
-        const backButton = new BackButtonComponent(pageHeader)
+        const backButton = new BackButtonComponent(home)
         backButton.render(this.clickBack.bind(this))
     
         const data = this.getData()
         const stock = new PostComponent(this.pageRoot)
 
 
-        let a_html = "<p>The article's designated array of a's: "
+        let a_html = "<p>Специальный массив букв 'а' этой статьи: "
         a_html = a_html.concat(fill(this.id, 'a'),'</p>')
         
 

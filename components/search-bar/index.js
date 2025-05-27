@@ -12,7 +12,7 @@ export class SearchBarComponent {
     getHTML() {
         return (
             `
-                <input id="search-bar" class="align-middle search-bar" type="text" placeholder="Search..."></input>
+                <input id="search-bar" class="align-middle search-bar" type="text" placeholder="Поиск..."></input>
             `
         )
     }

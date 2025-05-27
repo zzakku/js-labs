@@ -12,7 +12,7 @@ export class AddButtonComponent {
     getHTML() {
         return (
             `
-                <button id="add-button" class="my-btn btn-primary align-middle" type="button">Add a post</button>
+                <button id="add-button" class="my-btn btn-primary align-middle" type="button">Добавить запись</button>
             `
         )
     }

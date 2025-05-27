@@ -27,13 +27,13 @@ function checkTimeWithWhile() {
         break;
     }
     
-    if (hours >= 12) {
-        console.log(`В такой час я могу не стесняться сказать, что максимальное качественное различие в данных объектах это...)`);
-        console.log(maxKDiff(objs[0]));
-        console.log("...да ")
-        console.log(maxKDiff(objs[1]));
-        return;
-    }
+//    if (hours >= 12) {
+ //       console.log(`В такой час я могу не стесняться сказать, что максимальное качественное различие в данных объектах это...)`);
+ //       console.log(maxKDiff(objs[0]));
+ //       console.log("...да ")
+ //       console.log(maxKDiff(objs[1]));
+ //       return;
+ //   }
 }
 
 checkTimeWithWhile();

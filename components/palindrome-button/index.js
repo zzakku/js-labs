@@ -12,7 +12,7 @@ export class PalindromeButtonComponent {
     getHTML() {
         return (
             `
-                <button id="palindrome-button" class="my-btn btn-primary align-middle" type="button">Find palindromes</button>
+                <button id="palindrome-button" class="my-btn btn-primary align-middle" type="button">Найти палиндромы</button>
             `
         )
     }
