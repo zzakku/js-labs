@@ -1,4 +1,4 @@
-export class CreateStockDto {
+export class CreateBlPostDto {
   src: string;
   title: string;
   date: string;
