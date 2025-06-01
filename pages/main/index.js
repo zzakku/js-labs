@@ -106,9 +106,10 @@ export class MainPage {
     }
 
     getData() {
-        ajax.get(stockUrls.getStocks(), (data) => {
-            this.renderCards(data);
-        })
+        this.currentData = ajax.get(stockUrls.getStocks())
+//        ajax.get(stockUrls.getStocks(), (data) => {
+//            this.renderCards(data);
+//        })
     }
 
 /*     getData() {
