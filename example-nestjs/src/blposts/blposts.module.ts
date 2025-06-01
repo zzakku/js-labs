@@ -17,5 +17,6 @@ import { BlPost } from './entities/blpost.entity';
   ],
 })
 export class BlPostsModule implements FileAccessor {
-  public readonly filePath = 'assets/blposts.json';
+  public readonly filePath = 'blposts.json';
+//  public readonly filePath = 'assets/blposts.json';
 }
