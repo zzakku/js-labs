@@ -7,6 +7,9 @@ import { SearchBarComponent } from "../../components/search-bar/index.js";
 
 import { encDate, decDate } from "../../misc/functions.js";
 
+import {ajax} from "../../modules/ajax.js";
+import {stockUrls} from "../../modules/stockUrls.js";
+
 export class MainPage {
     constructor(parent) {
         this.parent = parent;
@@ -103,6 +106,12 @@ export class MainPage {
     }
 
     getData() {
+        ajax.get(stockUrls.getStocks(), (data) => {
+            this.renderCards(data);
+        })
+    }
+
+/*     getData() {
         return [
             {
                 id: 1,
@@ -135,7 +144,7 @@ export class MainPage {
             },
         ]
     }
-        
+      */   
     renderCards(data) {
 
         const cardContainer = document.getElementById("card-container")
