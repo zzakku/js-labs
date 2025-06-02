@@ -1,27 +1,27 @@
-class StockUrls {
+class BlPostUrls {
     constructor() {
         this.baseUrl = 'http://localhost:3000';
     }
 
-    getStocks() {
+    getBlPosts() {
         return `${this.baseUrl}/blposts`;
     }
 
-    getStockById(id) {
+    getBlPostById(id) {
         return `${this.baseUrl}/blposts/${id}`;
     }
 
-    createStock() {
+    createBlPost() {
         return `${this.baseUrl}/blposts`;
     }
 
-    removeStockById() {
+    removeBlPostById(id) {
         return `${this.baseUrl}/blposts/${id}`;
     }
 
-    updateStockById() {
+    updateBlPostById(id) {
         return `${this.baseUrl}/blposts/${id}`;
     }
 }
 
-export const stockUrls = new StockUrls();
+export const blpostUrls = new BlPostUrls();

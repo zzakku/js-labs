@@ -8,7 +8,7 @@ import { SearchBarComponent } from "../../components/search-bar/index.js";
 import { encDate, decDate } from "../../misc/functions.js";
 
 import {ajax} from "../../modules/ajax.js";
-import {stockUrls} from "../../modules/stockUrls.js";
+import {blpostUrls} from "../../modules/blpostUrls.js";
 
 export class MainPage {
     constructor(parent) {
@@ -40,7 +40,7 @@ export class MainPage {
 
     // Кнопка "Добавить запись"
     clickAdd() {
-        const firstItem = this.getData()[0]
+        const firstItem = this.currentData[0]
         let maxId = 0
 
         this.currentData.forEach((item) => {
@@ -75,10 +75,20 @@ export class MainPage {
     clickDelete(postId) {
         const index = this.currentData.findIndex(item => item.id === postId);
 
-        if (index !== -1) {
+        if (confirm("Вы действительно хотите удалить данный пост?")) {
+            ajax.get(blpostUrls.removeBlPostById(index), (data, status) => {
+                if ((status === 200 || status === 202) && data) {
+                    this.getData()
+                } else {
+                    console.error('Ошибка удаления данных:', status);
+                }
+            });
+        }
+
+/*        if (index !== -1) {
             this.currentData.splice(index, 1);
             this.render();
-        }
+        }*/
     }
 
     //Кнопка "Домой"
@@ -107,7 +117,7 @@ export class MainPage {
 
     getData() {
 
-        ajax.get(stockUrls.getStocks(), (data, status) => {
+        ajax.get(blpostUrls.getBlPosts(), (data, status) => {
           if (status === 200 && data) {
             this.currentData = data;
             this.renderCards(this.currentData)
@@ -117,7 +127,7 @@ export class MainPage {
             this.renderCards(this.currentData)
           }
         });
-//        ajax.get(stockUrls.getStocks(), (data) => {
+//        ajax.get(blpostUrls.getBlPosts(), (data) => {
 //            this.renderCards(data);
 //        })
     console.log(this.currentData)

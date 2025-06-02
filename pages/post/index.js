@@ -4,7 +4,7 @@ import {MainPage} from "../main/index.js";
 import {PostComponent} from "../../components/post/index.js";
 
 import { ajax } from "../../modules/ajax.js";
-import { stockUrls } from "../../modules/stockUrls.js";
+import { blpostUrls } from "../../modules/blpostUrls.js";
 
 export class PostPage {
     constructor(parent, id) {
@@ -18,7 +18,7 @@ export class PostPage {
     }
 
     getData() {
-        ajax.get(stockUrls.getStockById(this.id), (data) => {
+        ajax.get(blpostUrls.getBlPostById(this.id), (data) => {
             this.renderData(data);
         })
 
@@ -62,11 +62,11 @@ export class PostPage {
         backButton.render(this.clickBack.bind(this))
     
 //        const data = this.getData()
-//        const stock = new PostComponent(this.pageRoot)
+//        const blpost = new PostComponent(this.pageRoot)
         
         this.parent.insertAdjacentHTML('beforeend', html)
 
         this.getData()
-//        stock.render(data)
+//        blpost.render(data)
     }
 }
