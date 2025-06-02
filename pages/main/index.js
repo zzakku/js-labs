@@ -76,9 +76,9 @@ export class MainPage {
         const index = this.currentData.findIndex(item => item.id === postId);
 
         if (confirm("Вы действительно хотите удалить данный пост?")) {
-            ajax.get(blpostUrls.removeBlPostById(index), (data, status) => {
-                if ((status === 200 || status === 202) && data) {
-                    this.getData()
+            ajax.delete(blpostUrls.removeBlPostById(postId), (data, status) => {
+                if ((status === 200 || status === 202 || status === 204)) {
+                    this.render()
                 } else {
                     console.error('Ошибка удаления данных:', status);
                 }
