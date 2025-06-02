@@ -62,6 +62,7 @@ class Ajax {
     delete(url, callback) {
         const xhr = new XMLHttpRequest();
         xhr.open('DELETE', url);
+        xhr.withCredentials = true;
         xhr.send();
 
         xhr.onreadystatechange = () => {
