@@ -3,6 +3,9 @@ import {MainPage} from "../main/index.js";
 
 import {PostComponent} from "../../components/post/index.js";
 
+import { ajax } from "../../modules/ajax.js";
+import { stockUrls } from "../../modules/stockUrls.js";
+
 export class PostPage {
     constructor(parent, id) {
         this.parent = parent
@@ -15,12 +18,16 @@ export class PostPage {
     }
 
     getData() {
-        return {
+        ajax.get(stockUrls.getStockById(this.id), (data) => {
+            this.renderData(data);
+        })
+
+/*         return {
             id: 1,
             src: "https://i.pinimg.com/originals/c9/ea/65/c9ea654eb3a7398b1f702c758c1c4206.jpg",
             title: `Запись в блоге ${this.id}`,
             text: "Эта задача абсолютно точно лучше решается средствами Rust!"
-        }
+        } */
     }
 
     get pageRoot() {
@@ -39,6 +46,11 @@ export class PostPage {
         )
     }
 
+    renderData(item) {
+        const post = new PostComponent(this.pageRoot)
+        post.render(item)
+    }
+
     render() {
         this.parent.innerHTML = ''
         const html = this.getHTML()
@@ -49,12 +61,12 @@ export class PostPage {
         const backButton = new BackButtonComponent(home)
         backButton.render(this.clickBack.bind(this))
     
-        const data = this.getData()
-        const stock = new PostComponent(this.pageRoot)
+//        const data = this.getData()
+//        const stock = new PostComponent(this.pageRoot)
         
-        this.parent.insertAdjacentHTML('beforeend', a_html)
+        this.parent.insertAdjacentHTML('beforeend', html)
 
-
-        stock.render(data)
+        this.getData()
+//        stock.render(data)
     }
 }
