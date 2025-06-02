@@ -13,7 +13,7 @@ import {stockUrls} from "../../modules/stockUrls.js";
 export class MainPage {
     constructor(parent) {
         this.parent = parent;
-        this.currentData = this.getData();
+        this.currentData = [];
     }
 
     clickCard(e) {
@@ -106,10 +106,21 @@ export class MainPage {
     }
 
     getData() {
-        this.currentData = ajax.get(stockUrls.getStocks())
+
+        ajax.get(stockUrls.getStocks(), (data, status) => {
+          if (status === 200 && data) {
+            this.currentData = data;
+            this.renderCards(this.currentData)
+          } else {
+            console.error('Ошибка загрузки данных:', status);
+            this.currentData = [];
+            this.renderCards(this.currentData)
+          }
+        });
 //        ajax.get(stockUrls.getStocks(), (data) => {
 //            this.renderCards(data);
 //        })
+    console.log(this.currentData)
     }
 
 /*     getData() {
@@ -176,6 +187,6 @@ export class MainPage {
         const searchBar = new SearchBarComponent(buttons)
         searchBar.render(this.handleSearch.bind(this))
 
-        this.renderCards(this.currentData)
+        this.getData();
     }
 }

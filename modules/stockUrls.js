@@ -4,23 +4,23 @@ class StockUrls {
     }
 
     getStocks() {
-        return `${this.baseUrl}/stocks`;
+        return `${this.baseUrl}/blposts`;
     }
 
     getStockById(id) {
-        return `${this.baseUrl}/stocks/${id}`;
+        return `${this.baseUrl}/blposts/${id}`;
     }
 
     createStock() {
-        return `${this.baseUrl}/stocks`;
+        return `${this.baseUrl}/blposts`;
     }
 
     removeStockById() {
-        return `${this.baseUrl}/stocks/${id}`;
+        return `${this.baseUrl}/blposts/${id}`;
     }
 
     updateStockById() {
-        return `${this.baseUrl}/stocks/${id}`;
+        return `${this.baseUrl}/blposts/${id}`;
     }
 }
 
