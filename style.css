@@ -200,4 +200,28 @@ body {
     box-shadow: 0 0 7px #2a3439 inset
   }
 
+  .edit-btn {        
+    border: none;               
+    height: 38px;
+    width: 75px;
+    background: #FFF;        
+    color: #000;               
+    font-size: 1rem;          
+    font-family: 'Fira Sans', Helvetica, sans-serif; 
+    font-weight: 500; 
+    cursor: pointer;             
+    user-select: none;         
+    margin-left: 5px;
+}
+
+.edit-btn:hover {
+    border: 1px solid;
+    border-color: rgb(148,165,176);
+}
+
+.edit-btn:active{
+    box-shadow: 0 0 7px #2a3439 inset
+}
+
+
 }

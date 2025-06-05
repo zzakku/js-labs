@@ -1,5 +1,6 @@
 import {PostCardComponent} from "../../components/post-card/index.js";
 import {PostPage} from "../post/index.js";
+import { AddEditPostPage } from "../add-edit-post/index.js";
 import {AddButtonComponent} from "../../components/add-button/index.js";
 import {SortButtonComponent} from "../../components/sort-button/index.js";
 import {BackButtonComponent} from "../../components/back-button/index.js";
@@ -64,25 +65,13 @@ export class MainPage {
 
     // Кнопка "Добавить запись"
     clickAdd() {
-        const firstItem = this.currentData[0]
-        let maxId = 0
-
-        this.currentData.forEach((item) => {
-            if (maxId < item.id)
-            {
-                maxId = item.id
-            }
-        })
-
-        firstItem.id = maxId + 1
-
-        this.currentData.push(firstItem)
-
-        this.render()
+        const editPage = new AddEditPostPage(this.parent);
+        editPage.render();
     }
 
+    // Кнопка "Сортировать по дате"
     clickSort() {
-        const sortedArray = [...this.currentData];
+        const sortedArray = [...this.filteredData];
     
         sortedArray.sort((a, b) => {
             const dateA = decDate(a.date).getTime();
@@ -91,8 +80,14 @@ export class MainPage {
             return dateB - dateA;
         });
     
-        this.currentData = sortedArray;
-        this.render();
+        this.filteredData = sortedArray;
+        this.updateCardDisplay();
+    }
+
+    // Кнопка "Редактировать"
+    clickEdit(e) {
+        const editPage = new AddEditPostPage(this.parent, e);
+        editPage.render();
     }
 
     // Кнопка "Удалить запись"
@@ -181,7 +176,10 @@ export class MainPage {
 
         data.forEach((item) => {
             const postCard = new PostCardComponent(cardContainer)
-            postCard.render(item, {add: this.clickCard.bind(this), delete: (e) => this.clickDelete(parseInt(e.target.dataset.id))})
+            postCard.render(item, {
+                add: this.clickCard.bind(this),
+                delete: (e) => this.clickDelete(parseInt(e.target.dataset.id)),
+                edit: (e) => this.clickEdit(parseInt(e.target.dataset.id))})
         })
     }
     
