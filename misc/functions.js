@@ -1,11 +1,11 @@
 export function encDate(dateUnproc) {
     const monthsEngToRus = ['янв.', 'фев.', 'мар.', 'апр.', 'мая', 'июн.','июл.', 'авг.', 'сен.', 'окт.', 'дек.']
 
-    const year = arg.getFullYear()
-    const month = arg.getMonth()
-    const day = arg.getDate()
+    const year = dateUnproc.getFullYear()
+    const month = dateUnproc.getMonth()
+    const day = dateUnproc.getDate()
 
-    return `${day} ${monthsEngToRus[month]}, ${year}`;
+    return `${day} ${monthsEngToRus[month]} ${year}`;
 }
 
 export function decDate(dateStr) {

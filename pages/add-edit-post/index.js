@@ -6,6 +6,8 @@ import {PostComponent} from "../../components/post/index.js";
 import { ajax } from "../../modules/ajax.js";
 import { blpostUrls } from "../../modules/blpostUrls.js";
 
+import { encDate, decDate } from "../../misc/functions.js";
+
 export class AddEditPostPage {
     constructor(parent, postId = null) {
         this.parent = parent;
@@ -14,17 +16,8 @@ export class AddEditPostPage {
         this.postData = {
             title: '',
             text: '',
-            date: this.getCurrentDate()
+            date: encDate(new Date())
         };
-    }
-
-    getCurrentDate() {
-        const months = ['янв.', 'фев.', 'мар.', 'апр.', 'мая', 'июн.', 'июл.', 'авг.', 'сен.', 'окт.', 'ноя.', 'дек.'];
-        const now = new Date();
-        const day = now.getDate();
-        const month = months[now.getMonth()];
-        const year = now.getFullYear();
-        return `${day} ${month} ${year}`;
     }
 
     // Загрузка данных поста для редактирования
@@ -97,7 +90,10 @@ export class AddEditPostPage {
 
     getHTML() {
         return `
-            <div id="post-edit-page" class="container mt-5">
+            <div id="post-edit-page" class="container-fluid">
+                <nav id="header" class="navbar navbar-expand-lg">
+                    <div id="home-container" class = "navbar-brand"></div>
+                </nav>
                 <div class="row justify-content-center">
                     <div class="col-md-8">
                         <div class="d-flex justify-content-between align-items-center mb-4">
@@ -140,6 +136,11 @@ export class AddEditPostPage {
 
     render() {
         this.parent.innerHTML = this.getHTML();
+
+        const home = document.getElementById("home-container")
+    
+        const backButton = new BackButtonComponent(home)
+        backButton.render(this.clickBack.bind(this))
         
         document.getElementById('post-form').addEventListener('submit', this.handleSave.bind(this));
         document.getElementById('back-btn').addEventListener('click', this.clickBack.bind(this));

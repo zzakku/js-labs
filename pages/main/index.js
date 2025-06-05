@@ -28,26 +28,9 @@ export class MainPage {
 
     // Поле поиска
     handleSearch(e) {
-//        const searchBar = document.getElementById("search-bar")
-//        const cardContainer = document.getElementById("card-container")
-/*         const searchQuery = e.target.value.toLowerCase()
-
-        ajax.get(blpostUrls.getBlPostsByQuery(searchQuery), (data, status) => {
-                if ((status === 200 || status === 202 || status === 204)) {
-                    this.currentData = data;
-                    this.render()
-                } else {
-                    console.error('Ошибка получения данных:', status);
-                }
-            }); */
 
         this.searchQuery = e.target.value.toLowerCase();
         this.filterCards();
-
-//        document.querySelectorAll('.card').forEach(card => {
-//            const title = card.children[1].children[0].innerHTML.toLowerCase();
-//            card.style.display = title.includes(searchQuery) ? 'block' : 'none';
-//        });
     }
 
     filterCards() {
@@ -59,7 +42,6 @@ export class MainPage {
             );
         }
         
-        // Обновляем только карточки
         this.updateCardDisplay();
     }
 
@@ -103,11 +85,6 @@ export class MainPage {
                 }
             });
         }
-
-/*        if (index !== -1) {
-            this.currentData.splice(index, 1);
-            this.render();
-        }*/
     }
 
     //Кнопка "Домой"
@@ -139,7 +116,6 @@ export class MainPage {
         ajax.get(blpostUrls.getBlPosts(), (data, status) => {
           if (status === 200 && data) {
             this.currentData = data;
-//            this.renderCards(this.currentData)
 
                 this.filteredData = [...data];
                 this.updateCardDisplay();
@@ -157,9 +133,6 @@ export class MainPage {
                 this.updateCardDisplay();
           }
         });
-//        ajax.get(blpostUrls.getBlPosts(), (data) => {
-//            this.renderCards(data);
-//        })
     }
 
     updateCardDisplay() {
