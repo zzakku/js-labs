@@ -11,6 +11,10 @@ class BlPostUrls {
         return `${this.baseUrl}/blposts/${id}`;
     }
 
+    getBlPostsByQuery(query) {
+        return `${this.baseUrl}/blposts?${encodeURIComponent(query)}`;        
+    }
+
     createBlPost() {
         return `${this.baseUrl}/blposts`;
     }

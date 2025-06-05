@@ -14,6 +14,8 @@ export class MainPage {
     constructor(parent) {
         this.parent = parent;
         this.currentData = [];
+        this.filteredData = []; // currentData - общее, filteredData - отфильтрованное для отображения
+        this.searchQuery = ""; // Сохранение поисковского запроса
     }
 
     clickCard(e) {
@@ -25,17 +27,39 @@ export class MainPage {
 
     // Поле поиска
     handleSearch(e) {
-         const searchBar = document.getElementById("search-bar")
-         const cardContainer = document.getElementById("card-container")
-//        searchBar.addEventListener('input', (e) => {
-            const searchQuery = e.target.value.toLowerCase()
-            document.querySelectorAll('.card').forEach(card => {
-                const title = card.children[1].children[0].innerHTML.toLowerCase();
-//                console.log(maxKDiff([5,6,2,7,4]))
-//                console.log(fill(3,'a'))
-                card.style.display = title.includes(searchQuery) ? 'block' : 'none';
-            });
-//        }); */
+//        const searchBar = document.getElementById("search-bar")
+//        const cardContainer = document.getElementById("card-container")
+/*         const searchQuery = e.target.value.toLowerCase()
+
+        ajax.get(blpostUrls.getBlPostsByQuery(searchQuery), (data, status) => {
+                if ((status === 200 || status === 202 || status === 204)) {
+                    this.currentData = data;
+                    this.render()
+                } else {
+                    console.error('Ошибка получения данных:', status);
+                }
+            }); */
+
+        this.searchQuery = e.target.value.toLowerCase();
+        this.filterCards();
+
+//        document.querySelectorAll('.card').forEach(card => {
+//            const title = card.children[1].children[0].innerHTML.toLowerCase();
+//            card.style.display = title.includes(searchQuery) ? 'block' : 'none';
+//        });
+    }
+
+    filterCards() {
+        if (!this.searchQuery) {
+            this.filteredData = [...this.currentData];
+        } else {
+            this.filteredData = this.currentData.filter(item => 
+                item.title.toLowerCase().includes(this.searchQuery)
+            );
+        }
+        
+        // Обновляем только карточки
+        this.updateCardDisplay();
     }
 
     // Кнопка "Добавить запись"
@@ -120,53 +144,37 @@ export class MainPage {
         ajax.get(blpostUrls.getBlPosts(), (data, status) => {
           if (status === 200 && data) {
             this.currentData = data;
-            this.renderCards(this.currentData)
+//            this.renderCards(this.currentData)
+
+                this.filteredData = [...data];
+                this.updateCardDisplay();
+                
+                // Восстанавливаем поисковый запрос если он был
+                const searchInput = document.getElementById("search-input");
+                if (searchInput && this.searchQuery) {
+                    searchInput.value = this.searchQuery;
+                    this.filterCards();
+                }
           } else {
-            console.error('Ошибка загрузки данных:', status);
-            this.currentData = [];
-            this.renderCards(this.currentData)
+                console.error('Ошибка загрузки данных:', status);
+                this.currentData = [];
+                this.filteredData = [];
+                this.updateCardDisplay();
           }
         });
 //        ajax.get(blpostUrls.getBlPosts(), (data) => {
 //            this.renderCards(data);
 //        })
-    console.log(this.currentData)
     }
 
-/*     getData() {
-        return [
-            {
-                id: 1,
-                src: "https://i.pinimg.com/originals/c9/ea/65/c9ea654eb3a7398b1f702c758c1c4206.jpg",
-                title: "ama",
-//                 title: "Help us create a vision for Rust's future",
-                date: "1 янв. 2023",
-                text: "tl;dr: Пройдите наш опрос"
-            },
-            {
-                id: 2,
-                src: "https://i.pinimg.com/originals/c9/ea/65/c9ea654eb3a7398b1f702c758c1c4206.jpg",
-                title: "Новый ABI C для `wasm32-unknown-unknown`",
-                date: "2 янв. 2023",
-                text: 'Внешний ABI "C" для сборки под wasm32-unknown-unknown были основаны на нестандартном определении и имели ряд недостатков. В будущей версии этот ABI будет заменён на официальный.'
-            },
-            {
-                id: 3,
-                src: "https://i.pinimg.com/originals/c9/ea/65/c9ea654eb3a7398b1f702c758c1c4206.jpg",
-                title: "Анонс Rust 1.86.0",
-                date: "1 янв. 2023",
-                text: "Команда Rust рада представить новую версию Rust, 1.86.0. Rust - язык программирования, предоставляющий любому возможность написания безопасных и производительных программ."
-            },
-            {
-                id: 4,
-                src: "https://i.pinimg.com/originals/c9/ea/65/c9ea654eb3a7398b1f702c758c1c4206.jpg",
-                title: "bababab",
-                date: "4 янв. 2023",
-                text: "Команда Rust рада представить новую версию Rust, 1.86.0. Rust - язык программирования, предоставляющий любому возможность написания безопасных и производительных программ."
-            },
-        ]
+    updateCardDisplay() {
+        const cardContainer = document.getElementById("card-container");
+        if (!cardContainer) return;
+        
+        cardContainer.innerHTML = '';
+        this.renderCards(this.filteredData);
     }
-      */   
+
     renderCards(data) {
 
         const cardContainer = document.getElementById("card-container")
@@ -196,6 +204,13 @@ export class MainPage {
 
         const searchBar = new SearchBarComponent(buttons)
         searchBar.render(this.handleSearch.bind(this))
+
+        if (this.searchQuery) {
+            const searchInput = document.getElementById("search-input");
+            if (searchInput) {
+                searchInput.value = this.searchQuery;
+            }
+        }
 
         this.getData();
     }
