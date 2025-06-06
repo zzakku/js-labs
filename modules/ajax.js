@@ -16,6 +16,17 @@ class Ajax {
         };
     }
 
+    async get_async(url, callback) {
+        try {
+            let result = await fetch(url)
+
+            this._handleResponsePromise(result, callback)
+        }
+        catch(e) {
+            console.log(e)
+        }
+    }
+
     /**
      * POST запрос
      * @param {string} url - Адрес запроса
@@ -85,6 +96,21 @@ class Ajax {
             console.error('Ошибка парсинга JSON:', e);
             callback(null, xhr.status);
         }
+    }
+
+    /**
+     * Обработчик ответа (приватный метод)
+     * @param {Response} result - Объект запроса
+     * @param {function} callback - Функция обратного вызова
+     */
+    _handleResponsePromise(result, callback) {
+        try {
+            const data = result.json()
+            callback(data, result.status);
+        } catch (e) {
+            console.error('Ошибка парсинга JSON:', e);
+            callback(null, result.status);
+        }        
     }
 }
 
