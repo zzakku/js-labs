@@ -4,7 +4,7 @@ class Ajax {
      * @param {string} url - Адрес запроса
      * @param {function} callback - Функция обратного вызова (data, status)
      */
-    async get_async(url, callback) {
+    async get(url, callback) {
         try {
             let result = await fetch(url)
 
@@ -22,7 +22,7 @@ class Ajax {
      * @param {object} data - Данные для отправки
      * @param {function} callback - Функция обратного вызова (data, status)
      */
-    async post_async(url, data, callback) {
+    async post(url, data, callback) {
         try {
             let result = await fetch(url, {
                 method: "POST",
@@ -45,7 +45,7 @@ class Ajax {
      * @param {object} data - Данные для обновления
      * @param {function} callback - Функция обратного вызова (data, status)
      */
-    async patch_async(url, data, callback) {
+    async patch(url, data, callback) {
         try {
             let result = await fetch(url, {
                 method: "PATCH",
@@ -67,7 +67,7 @@ class Ajax {
      * @param {string} url - Адрес запроса
      * @param {function} callback - Функция обратного вызова (data, status)
      */
-    async delete_async(url, data, callback) {
+    async delete(url, callback) {
         try {
             let result = await fetch(url, {
                 method: "DELETE"
