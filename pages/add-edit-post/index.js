@@ -59,7 +59,7 @@ export class AddEditPostPage {
 
     // Создание нового поста
     createPost() {
-        ajax.post_async(blpostUrls.createBlPost(), this.postData, (data, status) => {
+        ajax.post(blpostUrls.createBlPost(), this.postData, (data, status) => {
             if (status === 200 || status === 201) {
                 alert('Пост успешно создан!');
                 this.clickBack();
