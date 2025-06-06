@@ -113,7 +113,7 @@ export class MainPage {
 
     getData() {
 
-        ajax.get_async(blpostUrls.getBlPosts(), (data, status) => {
+        ajax.get(blpostUrls.getBlPosts(), (data, status) => {
           if (status === 200 && data) {
             this.currentData = data;
 

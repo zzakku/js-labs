@@ -47,7 +47,7 @@ export class AddEditPostPage {
         this.postData = {
             title: document.getElementById('post-title').value,
             text: document.getElementById('post-text').value,
-            date: this.isEditMode ? this.postData.date : this.getCurrentDate()
+            date: this.isEditMode ? this.postData.date : encDate(new Date())
         };
 
         if (this.isEditMode) {
@@ -59,7 +59,7 @@ export class AddEditPostPage {
 
     // Создание нового поста
     createPost() {
-        ajax.post(blpostUrls.createBlPost(), this.postData, (data, status) => {
+        ajax.post_async(blpostUrls.createBlPost(), this.postData, (data, status) => {
             if (status === 200 || status === 201) {
                 alert('Пост успешно создан!');
                 this.clickBack();
