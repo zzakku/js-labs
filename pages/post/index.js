@@ -52,7 +52,7 @@ export class PostPage {
         const data = this.getData()
         const stock = new PostComponent(this.pageRoot)
         
-        this.parent.insertAdjacentHTML('beforeend', a_html)
+        this.parent.insertAdjacentHTML('beforeend', html)
 
 
         stock.render(data)
