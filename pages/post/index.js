@@ -18,6 +18,7 @@ export class PostPage {
         return {
             id: 1,
             src: "https://i.pinimg.com/originals/c9/ea/65/c9ea654eb3a7398b1f702c758c1c4206.jpg",
+            date: "1 янв. 2023",
             title: `Запись в блоге ${this.id}`,
             text: "Эта задача абсолютно точно лучше решается средствами Rust!"
         }

@@ -7,14 +7,11 @@ export class PostComponent {
         return (
             `
                 <div class="card mb-3" style="width: 540px;">
-                    <div class="row g-0">
-                        <div class="col-md-8">
                             <div class="my-card card-body">
-                                <h5 class="card-title">${data.title}</h5>
+                                <h3 class="card-title">${data.title}</h3>
+                                <h5 class="card-text" style="color: rgb(170,174,165);">${data.date}</h5>
                                 <p class="card-text">${data.text}</p>
                             </div>
-                        </div>
-                    </div>
                 </div>
             `
 
