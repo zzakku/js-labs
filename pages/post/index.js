@@ -53,13 +53,9 @@ export class PostPage {
     
         const data = this.getData()
         const stock = new PostComponent(this.pageRoot)
-
-
-        let a_html = "<p>Специальный массив букв 'а' этой статьи: "
-        a_html = a_html.concat(fill(this.id, 'a'),'</p>')
         
 
-        this.parent.insertAdjacentHTML('beforeend', a_html)
+        this.parent.insertAdjacentHTML('beforeend', html)
 
 
         stock.render(data)

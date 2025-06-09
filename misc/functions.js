@@ -1,12 +1,10 @@
 export function isEqualObj(x, y) {
-    // Думаю, можно предположить, что сравниваем мы таки ОБЪЕКТЫ, а не абы что...
      if (x === y)
      {
-         return true; // по идее примитивные объекты проверяются штатным тройным равно :^)
+         return true;
      }
 
     if ( x.constructor !== y.constructor ) return false;
-    // Дерево наследования должно совпадать, если конструкторы разные - уже плохо 
 
     for (let p in x )
         if ( x.hasOwnProperty( p ) && ! y.hasOwnProperty( p ) )
@@ -14,7 +12,6 @@ export function isEqualObj(x, y) {
     for (let p in y )
         if ( y.hasOwnProperty( p ) && ! x.hasOwnProperty( p ) )
         return false;
-    // сравниванием списки полей
 
     for (let p in x ) {
         if ( x[ p ] === y[ p ] ) continue;
@@ -39,7 +36,7 @@ export function fill(arraySize, data) {
     }
 
     return res;
-} // ['a', 'a', 'a']
+}
 
 //Качественная разница между двумя парами (a, b) и (c, d) определяется как (a * b) - (c * d).
 //Например, качественная разница между (5, 6) и (2, 7) - это (5 * 6) - (2 * 7) = 16.
@@ -77,8 +74,6 @@ export function maxKDiff(nums) {
             min2 = element;
         }
     });
-
-    console.log([max1, max2, min1, min2])
 
     return (max1 * max2) - (min1 * min2);
 }

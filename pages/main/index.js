@@ -27,20 +27,17 @@ export class MainPage {
     handleSearch(e) {
          const searchBar = document.getElementById("search-bar")
          const cardContainer = document.getElementById("card-container")
-//        searchBar.addEventListener('input', (e) => {
             const searchQuery = e.target.value.toLowerCase()
             document.querySelectorAll('.card').forEach(card => {
                 const title = card.children[1].children[0].innerHTML.toLowerCase();
-//                console.log(maxKDiff([5,6,2,7,4]))
-//                console.log(fill(3,'a'))
                 card.style.display = title.includes(searchQuery) ? 'block' : 'none';
             });
-//        }); */
     }
 
     // Кнопка "Добавить запись"
     clickAdd() {
-        const firstItem = this.getData()[0]
+        const firstItem = fill(1, this.getData()[0])
+//        this.getData()[0]
         let maxId = 0
 
         this.currentData.forEach((item) => {
@@ -50,11 +47,15 @@ export class MainPage {
             }
         })
 
-        firstItem.id = maxId + 1
-
-        this.currentData.push(firstItem)
-
-        this.render()
+        if (isEqualObj(this.currentData[0], firstItem[0])) {
+            firstItem[0].id = maxId + 1
+            this.currentData = this.currentData.concat(firstItem)
+            this.render()
+        }
+        else
+        {
+            console.log("Отсутствует информация о записи, которую можно было бы продублировать.");
+        }
     }
 
     clickSort() {
@@ -112,11 +113,23 @@ export class MainPage {
                     <nav id="header" class="navbar navbar-expand-lg">
                         <div id="home-container" class = "navbar-brand"></div>
                     </nav>
-                    <div id="button-container" class = "d-flex flex-wrap gap-3"></div>
+                    <div id="button-container" class = "d-flex flex-wrap gap-3">
+                    <h5>Макс. кач. разница по датам: ${maxKDiff(this.getDateDays())}</h5></div>
                     <div id="card-container" class="d-flex flex-wrap gap-3"></div>
                 <div/>
             `
         )
+    }
+
+    getDateDays()
+    {
+        let resArr = [];
+
+        this.currentData.forEach((item) => {
+            resArr.push(item.date[0]);
+        })       
+
+        return resArr;
     }
 
     getData() {
